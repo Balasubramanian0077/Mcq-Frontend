@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar (RIGHT) -->
+  <div style="text-align:right; padding:10px;">
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="help.html">Help</a> |
+    <a href="user-login.html">User Login</a> |
+    <a href="admin-login.html">Admin Login</a>
+  </div>
+
+  <hr>
+
+  <!-- Center Content -->
+  <div style="width:60%; margin:auto; text-align:center; padding:40px;">
+
+    <h1>Admin Dashboard</h1>
+
+    <p>
+      Welcome Admin. Use the options below to manage quiz questions and
+      view user results.
+    </p>
+
+    <!-- Horizontal Buttons -->
+    <div style="margin-top:30px;">
+      <button onclick="location.href='admin-add-question.html'">
+        Add Question
+      </button>
+
+      <button onclick="location.href='admin-view-questions.html'" style="margin-left:20px;">
+        View Questions
+      </button>
+
+      <button onclick="location.href='admin-view-results.html'" style="margin-left:20px;">
+        View Results
+      </button>
+    </div>
+
+    <h3 style="margin-top:40px;">Admin Responsibilities</h3>
+
+    <ul style="text-align:left; display:inline-block;">
+      <li>Add and update quiz questions</li>
+      <li>Verify question correctness</li>
+      <li>Monitor quiz results</li>
+      <li>Ensure fair quiz conduct</li>
+    </ul>
+
+    <div style="margin-top:30px;">
+      <button id="logout">Logout</button>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script>
+    requireAdmin();
+    document.getElementById("logout").onclick = () => {
+      logoutAdmin();
+      window.location.href = "admin-login.html";
+    };
+  </script>
+
+</body>
+</html>

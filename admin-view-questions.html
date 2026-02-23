@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - View Questions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar (RIGHT) -->
+  <div style="text-align:right; padding:10px;">
+    <a href="index.html">Home</a> |
+    <a href="admin-dashboard.html">Dashboard</a> |
+    <a href="admin-add-question.html">Add Question</a> |
+    <a href="admin-view-results.html">View Results</a>
+  </div>
+
+  <hr>
+
+  <!-- Center ONLY heading + actions -->
+  <div style="width:80%; margin:auto; padding:30px;">
+
+    <div style="text-align:center;">
+      <h1>All Questions</h1>
+
+      <p>
+        This page loads from:
+        <b>/admin/questions/all</b>
+      </p>
+
+      <div style="margin:15px 0;">
+        <button id="refreshBtn" type="button">Refresh</button>
+        <button id="backBtn" type="button" style="margin-left:15px;">Back</button>
+      </div>
+
+      <div id="msg"></div>
+    </div>
+
+    <!-- Table stays NORMAL -->
+    <div style="overflow:auto; margin-top:20px;">
+      <table id="qTable" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="padding:10px; border-bottom:1px solid #ccc;">ID</th>
+            <th style="padding:10px; border-bottom:1px solid #ccc;">Question</th>
+            <th style="padding:10px; border-bottom:1px solid #ccc;">A</th>
+            <th style="padding:10px; border-bottom:1px solid #ccc;">B</th>
+            <th style="padding:10px; border-bottom:1px solid #ccc;">C</th>
+            <th style="padding:10px; border-bottom:1px solid #ccc;">D</th>
+            <th style="padding:10px; border-bottom:1px solid #ccc;">Correct</th>
+          </tr>
+        </thead>
+        <tbody id="qBody">
+          <!-- rows added by JS -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Scripts (NO CHANGE) -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin/view-questions.js"></script>
+
+</body>
+</html>

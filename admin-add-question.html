@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Add Question</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar (RIGHT) -->
+  <div style="text-align:right; padding:10px;">
+    <a href="index.html">Home</a> |
+    <a href="admin-dashboard.html">Dashboard</a> |
+    <a href="admin-view-questions.html">View Questions</a> |
+    <a href="admin-view-results.html">View Results</a>
+  </div>
+
+  <hr>
+
+  <!-- Center Content -->
+  <div style="width:60%; margin:auto; text-align:center; padding:40px;">
+
+    <h1>Add Question</h1>
+    <p>Fill all fields. Correct Answer must be A / B / C / D</p>
+
+    <div id="msg"></div>
+
+    <!-- Question -->
+    <div style="text-align:left; margin-top:20px;">
+      <label>Question Text</label><br>
+      <input id="questionText" type="text" placeholder="Enter question"
+             style="width:100%; padding:6px;"><br><br>
+    </div>
+
+    <!-- Options A & B -->
+    <div style="display:flex; gap:20px; text-align:left;">
+      <div style="width:50%;">
+        <label>Option A</label><br>
+        <input id="optionA" type="text" placeholder="Option A"
+               style="width:100%; padding:6px;">
+      </div>
+
+      <div style="width:50%;">
+        <label>Option B</label><br>
+        <input id="optionB" type="text" placeholder="Option B"
+               style="width:100%; padding:6px;">
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Options C & D -->
+    <div style="display:flex; gap:20px; text-align:left;">
+      <div style="width:50%;">
+        <label>Option C</label><br>
+        <input id="optionC" type="text" placeholder="Option C"
+               style="width:100%; padding:6px;">
+      </div>
+
+      <div style="width:50%;">
+        <label>Option D</label><br>
+        <input id="optionD" type="text" placeholder="Option D"
+               style="width:100%; padding:6px;">
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Correct Answer -->
+    <div style="text-align:left;">
+      <label>Correct Answer</label><br>
+      <select id="correctAnswer" style="width:100%; padding:6px;">
+        <option value="">-- Select --</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+      </select>
+    </div>
+
+    <br>
+
+    <!-- Actions -->
+    <div style="margin-top:20px;">
+      <button id="addBtn">Add Question</button>
+      <button id="clearBtn" type="button" style="margin-left:15px;">Clear</button>
+      <button id="backBtn" type="button" style="margin-left:15px;">Back</button>
+    </div>
+
+  </div>
+
+  <!-- Scripts (NO CHANGE) -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin/add-question.js"></script>
+
+</body>
+</html>

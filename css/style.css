@@ -1,0 +1,431 @@
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Navbar ===== */
+nav, div[style*="text-align:right"] {
+  background-color: #ffffff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: right;
+}
+
+nav a, div[style*="text-align:right"] a {
+  color: #2c3e50;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover, div[style*="text-align:right"] a:hover {
+  color: #3498db;
+}
+
+nav a:first-child, div[style*="text-align:right"] a:first-child {
+  margin-left: 0;
+}
+
+/* Separator pipes (|) between links */
+nav a:not(:last-child)::after,
+div[style*="text-align:right"] a:not(:last-child)::after {
+  content: "|";
+  color: #ccc;
+  margin-left: 10px;
+  pointer-events: none;
+}
+
+nav a:last-child::after,
+div[style*="text-align:right"] a:last-child::after {
+  content: none;
+}
+
+/* ===== Main Container ===== */
+.container,
+div[style*="width:60%"],
+div[style*="width:40%"],
+div[style*="width:50%"],
+div[style*="width:80%"] {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* For pages that already have inline width, we override to keep consistency */
+div[style*="width:60%"],
+div[style*="width:40%"],
+div[style*="width:50%"],
+div[style*="width:80%"] {
+  width: 90% !important;
+}
+
+/* ===== Headings ===== */
+h1 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+h3 {
+  color: #34495e;
+  margin: 25px 0 15px;
+}
+
+/* ===== Paragraphs & Text ===== */
+p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+b, strong {
+  color: #2980b9;
+}
+
+/* ===== Lists ===== */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #f9f9f9;
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-left: 4px solid #3498db;
+  text-align: left;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* ===== Forms & Inputs (global) ===== */
+label {
+  font-weight: 600;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
+}
+
+/* ===== Buttons ===== */
+button,
+.button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 5px;
+}
+
+button:hover,
+.button:hover {
+  background-color: #2980b9;
+}
+
+button:active,
+.button:active {
+  transform: scale(0.98);
+}
+
+button#logout,
+button#clearBtn,
+button#backBtn {
+  background-color: #95a5a6;
+}
+
+button#logout:hover,
+button#clearBtn:hover,
+button#backBtn:hover {
+  background-color: #7f8c8d;
+}
+
+button#refreshBtn {
+  background-color: #27ae60;
+}
+
+button#refreshBtn:hover {
+  background-color: #2ecc71;
+}
+
+/* ===== Message Area (#msg) ===== */
+#msg {
+  padding: 12px 20px;
+  margin: 20px 0;
+  border-radius: 6px;
+  font-weight: 500;
+  display: none; /* Hidden by default, shown via JS */
+}
+
+#msg.success {
+  display: block;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+#msg.error {
+  display: block;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+#msg.info {
+  display: block;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+thead tr {
+  background-color: #3498db;
+  color: white;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* ===== Specific page adjustments ===== */
+
+/* Quiz page questions container */
+#questions {
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* Style each question block */
+.question-block {
+  background: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.question-block p {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.question-block label {
+  font-weight: normal;
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.question-block input[type="radio"] {
+  margin-right: 5px;
+  transform: scale(1.1);
+}
+
+/* Result box */
+#resultBox {
+  border: 1px solid #3498db;
+  background: #f0f8ff;
+  padding: 25px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  line-height: 2;
+}
+
+/* Admin dashboard buttons group */
+div[style*="margin-top:30px"] button {
+  min-width: 150px;
+}
+
+/* ===== Centered Medium Inputs for Login & Register Pages ===== */
+/* Targets the container with inline width:40% (used on user-login, user-register, admin-login) */
+div[style*="width:40%"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Center all children horizontally */
+  text-align: center;    /* Ensure text inside children is centered if needed */
+}
+
+/* Override any previous width settings for these containers */
+div[style*="width:40%"] {
+  width: 90% !important;
+  max-width: 500px;      /* Keep form from becoming too wide on large screens */
+}
+
+/* Style all direct children to have the same medium width */
+div[style*="width:40%"] > h1,
+div[style*="width:40%"] > p,
+div[style*="width:40%"] > div,
+div[style*="width:40%"] > label,
+div[style*="width:40%"] > input,
+div[style*="width:40%"] > button {
+  width: 70% !important;
+  max-width: 350px;      /* Optional: cap the width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Labels inside the login/register container – keep text left-aligned for readability */
+div[style*="width:40%"] label {
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Input fields inside the login/register container */
+div[style*="width:40%"] input[type="text"],
+div[style*="width:40%"] input[type="email"],
+div[style*="width:40%"] input[type="password"] {
+  display: block;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Button */
+div[style*="width:40%"] button {
+  display: inline-block;
+  width: auto !important;  /* Let button size to its content */
+  min-width: 150px;
+  margin: 10px auto;
+}
+
+/* Message box inside login/register */
+div[style*="width:40%"] #msg {
+  width: 70% !important;
+  margin: 20px auto;
+}
+
+/* The "New user?" or "Already have an account?" paragraph */
+div[style*="width:40%"] p:last-of-type {
+  width: 70% !important;
+  margin: 15px auto;
+  text-align: center;
+}
+
+/* ===== Footer (optional) ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  nav, div[style*="text-align:right"] {
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav a, div[style*="text-align:right"] a {
+    display: inline-block;
+    margin: 5px 10px;
+  }
+
+  .container,
+  div[style*="width:60%"],
+  div[style*="width:40%"],
+  div[style*="width:50%"],
+  div[style*="width:80%"] {
+    width: 95% !important;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  th, td {
+    padding: 8px 5px;
+  }
+
+  /* On mobile, let inputs take more width */
+  div[style*="width:40%"] > h1,
+  div[style*="width:40%"] > p,
+  div[style*="width:40%"] > div,
+  div[style*="width:40%"] > label,
+  div[style*="width:40%"] > input,
+  div[style*="width:40%"] > button {
+    width: 100% !important;
+    max-width: none;
+  }
+}
