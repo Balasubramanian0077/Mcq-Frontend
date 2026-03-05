@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://mcq-backend-f1oz.onrender.com";
 
 async function apiFetch(path, options = {}) {
   const res = await fetch(BASE_URL + path, {
